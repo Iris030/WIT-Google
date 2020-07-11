@@ -5,29 +5,29 @@
       "value": "name",
       "can_public": false
     },
-    "Address": {
+    "address": {
       "value": "king Cross",
       "can_public": false
     },
-    "Contact_info" {
+    "contact_info": {
       "value": "1818221212",
       "can_public": true
     },
 
-    "Pic" {
+    "pic": {
       "value": "f22!dsdqwdqw2#@!#@!#@!#!#swqferfaeeweqwfgre43f32`4g@#!1dwqd21332@!#!@#!#@!",
       "can_public": false
     },
-    "Time": "1997.10.10",
-    "Type": "bushfire",
-    "Content": "i need healing",
-    "Services": ["healling","olllllll"],
-    "Resolve": {
-      "status": false,
+    "time": "1997.10.10",
+    "type": "bushfire",
+    "content": "i need healing",
+    "services": ["healling","olllllll"],
+    "resolve": {
+      "status": false ,
       "helper": "null"
     },
 
-    "Replies": [
+    "replies": [
       {
         "username": "name.",
         "reply": "str"
