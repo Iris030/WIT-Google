@@ -3,9 +3,10 @@ import { withRouter } from "react-router";
 import Grid from "@material-ui/core/Grid";
 
 import Disaster from "./Disaster";
-import bushfire from "./bushfire.jpg";
-import flood from "./flood.jpg";
-import storm from "./storm.jpg";
+import bushfire from "./images/bushfire.jpg";
+import flood from "./images/flood.jpg";
+import storm from "./images/storm.jpg";
+import drought from "./images/drought.webp";
 
 class DisasterContainer extends React.Component {
   render() {
@@ -35,6 +36,12 @@ class DisasterContainer extends React.Component {
           number="66"
           image={storm}
           description="Storm is bad"
+        />
+        <Disaster
+          type="Drought"
+          number="745"
+          image={drought}
+          description="Drought fire is bad"
         />
       </Grid>
     );
