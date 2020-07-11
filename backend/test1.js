@@ -155,6 +155,10 @@ function updateFormById(id, newform) {
 
 }
 
-updateRepliesById("3", { name: "yess" })
+updateRepliesById("3", { name: "yess" });
+updateRepliesById("3", { name: "yess" });
+updateRepliesById("3", { name: "yess" });
+updateRepliesById("3", { name: "yess" });
+updateRepliesById("3", { name: "yess" });
 console.log(getFormById("1"));
 console.log("wwe");

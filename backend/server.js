@@ -4,7 +4,8 @@ export function getNumberByType(type) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
-            return callback(err)
+            console.error(err);
+            return err;
         } else {
             var index = JSON.parse(data);
             var num = 0;
@@ -21,7 +22,8 @@ export function getFormsByType(type) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
-            return callback(err)
+            console.error(err);
+            return err;
         } else {
             var index = JSON.parse(data);
             var arr = [];
@@ -39,7 +41,7 @@ export function getFormById(id) {
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
             console.log("error");
-            return err
+            return err;
         } else {
             var index = JSON.parse(data);
             console.log(index);
@@ -60,7 +62,8 @@ export function getUnresolvedByType(type) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
-            return err
+            console.error(err);
+            return err;
         } else {
             var index = JSON.parse(data);
             var arr = [];
@@ -77,7 +80,8 @@ export function getResolvedByType(type) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
-            return err
+            console.error(err);
+            return err;
         } else {
             var index = JSON.parse(data);
             var arr = [];
@@ -94,7 +98,8 @@ export function getResolvedByOrg(organization) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
-            return err
+            console.error(err);
+            return err;
         } else {
             var index = JSON.parse(data);
             var arr = [];
@@ -111,7 +116,8 @@ export function pushForm(id, form) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
-            return err
+            console.error(err);
+            return err;
         } else {
             var index = JSON.parse(data);
             index[id] = form;
@@ -127,7 +133,8 @@ export function pushForm(id, form) {
 export function updateRepliesById(id, replies) {
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
-            return err
+            console.error(err);
+            return err;
         } else {
             var index = JSON.parse(data);
             index[id]["replies"] = replies;
@@ -142,7 +149,8 @@ export function updateFormById(id, newform) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
-            return err
+            console.error(err);
+            return err;
         } else {
             var index = JSON.parse(data);
             index[id] = newform;
