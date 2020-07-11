@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-export function getNumberByType(type) {
+export async function getNumberByType(type) {
 
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
@@ -18,7 +18,7 @@ export function getNumberByType(type) {
 
 }
 
-export function getFormsByType(type) {
+export async function getFormsByType(type) {
 
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
@@ -36,7 +36,7 @@ export function getFormsByType(type) {
 
 }
 
-export function getFormById(id) {
+export async function getFormById(id) {
 
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
@@ -58,7 +58,7 @@ export function getFormById(id) {
 }
 
 
-export function getUnresolvedByType(type) {
+export async function getUnresolvedByType(type) {
 
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
@@ -76,7 +76,7 @@ export function getUnresolvedByType(type) {
 
 }
 
-export function getResolvedByType(type) {
+export async function getResolvedByType(type) {
 
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
@@ -94,7 +94,7 @@ export function getResolvedByType(type) {
 
 }
 
-export function getResolvedByOrg(organization) {
+export async function getResolvedByOrg(organization) {
 
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
@@ -112,7 +112,7 @@ export function getResolvedByOrg(organization) {
 
 }
 
-export function pushForm(id, form) {
+export async function pushForm(id, form) {
 
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
@@ -130,7 +130,7 @@ export function pushForm(id, form) {
 
 }
 
-export function updateRepliesById(id, replies) {
+export async function updateRepliesById(id, replies) {
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
             console.error(err);
@@ -145,7 +145,7 @@ export function updateRepliesById(id, replies) {
         }
     });
 }
-export function updateFormById(id, newform) {
+export async function updateFormById(id, newform) {
 
     fs.readFile('./index.json', 'utf8', function (err, data) {
         if (err) {
