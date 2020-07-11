@@ -8,6 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
+import { ReactComponent } from "*.svg";
 
 const useStyles = makeStyles({
   root: {
@@ -18,36 +19,62 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard(props) {
-  const classes = useStyles();
+export default class Disaster extends ReactComponent {
+  constructor(props) {
+    this.state = { number: 0 };
+  }
 
-  return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.image}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.type}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.description}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            There're {props.number} posts
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Link to={`/posts/${props.type}`}>
-          <Button size="small" color="primary">
-            More
-          </Button>
-        </Link>
-      </CardActions>
-    </Card>
-  );
+  classes = useStyles();
+
+  componentDidMount() {
+    fetch(`https://localhost:8081//getNumberByType?type=${this.props.type}`)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            number: result,
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
+  }
+  render() {
+    return (
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={this.props.image}
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {this.props.type}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {this.props.description}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              There're {props.number} posts
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Link to={`/posts/${this.props.type}`}>
+            <Button size="small" color="primary">
+              More
+            </Button>
+          </Link>
+        </CardActions>
+      </Card>
+    );
+  }
 }
