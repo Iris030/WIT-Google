@@ -49,7 +49,7 @@ export function getFormById(id) {
                 if (index.hasOwnProperty(id)) {
                     var need = index[id];
                     console.log(need);
-                    res(index);
+                    res(need);
                 } else {
                     res(null);
                 }

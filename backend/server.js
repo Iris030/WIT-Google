@@ -54,14 +54,15 @@ app.get("/pushForm", function (req, res) {
 app.get("/updateRepliesById", function (req, res) {
   var id = req.query.id;
   var replies = JSON.parse(req.query.replies);
-  data = api.updateRepliesById(id, replies).then((data) =>
+  console.log(req.query.replies);
+  api.updateRepliesById(id, replies).then((data) =>
   res.status(200).send(JSON.stringify({ status: "successful" })));
 });
 
 app.get("/updateFormById", function (req, res) {
   var id = req.query.id;
   var form = JSON.parse(req.query.form);
-  data = api.updateFormById(id, form).then((data) =>
+  api.updateFormById(id, form).then((data) =>
   res.status(200).send(JSON.stringify({ status: "successful" })));
 });
 app.listen(8081);
