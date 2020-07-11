@@ -16,7 +16,11 @@ class DisasterContainer extends React.Component {
         direction="row"
         justify="space-between"
         alignItems="center"
-        style={{ paddingLeft: "50px", paddingRight: "50px" }}
+        style={{
+          paddingLeft: "50px",
+          paddingRight: "50px",
+          boxSizing: "border-box",
+        }}
       >
         <Disaster
           type="Bushfire"

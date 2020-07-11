@@ -7,7 +7,7 @@ import logos from "./images/logos.jpg";
 
 export default function SponserContainer() {
   return (
-    <div style={{ width: "100vw" }}>
+    <div style={{ width: "100vw", boxSizing: "border-box" }}>
       <Sponser image={logos} />
     </div>
   );

@@ -13,6 +13,7 @@ export default function MediaCard() {
         backgroundImage: "url(" + home + ")",
         backgroundPosition: "top",
         backgroundSize: "cover",
+        boxSizing: "border-box",
       }}
     >
       <div
