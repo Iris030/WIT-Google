@@ -21,47 +21,47 @@ app.get("/getNumberByType", function (req, res) {
 });
 
 app.get("/getFormsByType", function (req, res) {
-  var type = req.query.type;
-  var data = api.getFormsByType(type);
-  res.status(200).send(JSON.stringify({ forms: data }));
+    var type = req.query.type;
+    api.getFormsByType(type).then((data) =>
+    res.status(200).send(JSON.stringify({ forms: data })));
 });
 
 app.get("/getUnresolvedByType", function (req, res) {
   var type = req.query.type;
-  var data = api.getUnresolvedByType(type);
-  res.status(200).send(JSON.stringify({ forms: data }));
+  api.getUnresolvedByType(type).then((data) =>
+  res.status(200).send(JSON.stringify({ forms: data })));
 });
 
 app.get("/getResolvedByType", function (req, res) {
   var type = req.query.type;
-  var data = api.getResolvedByType(type);
-  res.status(200).send(JSON.stringify({ forms: data }));
+  api.getResolvedByType(type).then((data) =>
+  res.status(200).send(JSON.stringify({ forms: data })));
 });
 
 app.get("/getResolvedByOrg", function (req, res) {
   var org = req.query.org;
-  var data = api.getResolvedByOrg(org);
-  res.status(200).send(JSON.stringify({ forms: data }));
+  data = api.getResolvedByOrg(org).then((data) =>
+  res.status(200).send(JSON.stringify({ forms: data })));
 });
 
 app.get("/pushForm", function (req, res) {
   var id = req.query.id;
   var form = JSON.parse(req.query.form);
-  var data = api.pushForm(id, form);
-  res.status(200).send(JSON.stringify({ status: "successful" }));
+  api.pushForm(id, form).then((data) =>
+  res.status(200).send(JSON.stringify({ status: "successful" })));
 });
 
 app.get("/updateRepliesById", function (req, res) {
   var id = req.query.id;
   var replies = JSON.parse(req.query.replies);
-  var data = api.updateRepliesById(id, replies);
-  res.status(200).send(JSON.stringify({ status: "successful" }));
+  data = api.updateRepliesById(id, replies).then((data) =>
+  res.status(200).send(JSON.stringify({ status: "successful" })));
 });
 
 app.get("/updateFormById", function (req, res) {
   var id = req.query.id;
   var form = JSON.parse(req.query.form);
-  var data = api.updateFormById(id, form);
-  res.status(200).send(JSON.stringify({ status: "successful" }));
+  data = api.updateFormById(id, form).then((data) =>
+  res.status(200).send(JSON.stringify({ status: "successful" })));
 });
 app.listen(8081);

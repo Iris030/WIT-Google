@@ -28,7 +28,8 @@ export function getFormsByType(type) {
         var index = JSON.parse(data);
         var arr = [];
         for (var key in index) {
-          if (index[key]["type"] == type) arr.append(index[key]);
+            if (index[key]["type"] == type) arr.push(index[key]);
+            console.log(arr);
         }
         res(arr);
       }
@@ -37,128 +38,147 @@ export function getFormsByType(type) {
 }
 
 export function getFormById(id) {
-  fs.readFile("./index.json", "utf8", function (err, data) {
-    if (err) {
-      console.log("error");
-      return err;
-    } else {
-      var index = JSON.parse(data);
-      console.log(index);
-      if (index.hasOwnProperty(id)) {
-        var need = index[id];
-        console.log(need);
-        return index;
-      } else {
-        return null;
-      }
-    }
-  });
+    return new Promise((res, rej) =>
+        fs.readFile("./index.json", "utf8", function (err, data) {
+            if (err) {
+                console.log("error");
+                rej(err);
+            } else {
+                var index = JSON.parse(data);
+                console.log(index);
+                if (index.hasOwnProperty(id)) {
+                    var need = index[id];
+                    console.log(need);
+                    res(index);
+                } else {
+                    res(null);
+                }
+            }
+        })
+    );
 }
 
 export function getUnresolvedByType(type) {
-  fs.readFile("./index.json", "utf8", function (err, data) {
-    if (err) {
-      console.error(err);
-      return err;
-    } else {
-      var index = JSON.parse(data);
-      var arr = [];
-      for (var key in index) {
-        if (
-          index[key]["type"] == type &&
-          index[key]["resolve"]["status"] == false
-        )
-          arr.append(index[key]);
-      }
-      return arr;
-    }
-  });
+    return new Promise((res, rej) =>
+        fs.readFile("./index.json", "utf8", function (err, data) {
+            if (err) {
+                console.error(err);
+                rej(err);
+            } else {
+                var index = JSON.parse(data);
+                var arr = [];
+                for (var key in index) {
+                    if (
+                        index[key]["type"] == type &&
+                        index[key]["resolve"]["status"] == false
+                    )
+                        arr.push(index[key]);
+                }
+                res(arr);
+            }
+        })
+    );
 }
 
 export function getResolvedByType(type) {
-  fs.readFile("./index.json", "utf8", function (err, data) {
-    if (err) {
-      console.error(err);
-      return err;
-    } else {
-      var index = JSON.parse(data);
-      var arr = [];
-      for (var key in index) {
-        if (
-          index[key]["type"] == type &&
-          index[key]["resolve"]["status"] == true
-        )
-          arr.append(index[key]);
-      }
-      return arr;
-    }
-  });
+    return new Promise((res, rej) =>
+        fs.readFile("./index.json", "utf8", function (err, data) {
+            if (err) {
+                console.error(err);
+                rej(err);
+            } else {
+                var index = JSON.parse(data);
+                var arr = [];
+                for (var key in index) {
+                    if (
+                        index[key]["type"] == type &&
+                        index[key]["resolve"]["status"] == true
+                    )
+                        arr.push(index[key]);
+                }
+                res(arr);
+            }
+        })
+    );
 }
 
 export function getResolvedByOrg(organization) {
-  fs.readFile("./index.json", "utf8", function (err, data) {
-    if (err) {
-      console.error(err);
-      return err;
-    } else {
-      var index = JSON.parse(data);
-      var arr = [];
-      for (var key in index) {
-        if (
-          index[key]["type"] == type &&
-          index[key]["resolve"]["status"] == true &&
-          index[key]["resolve"]["helper"] == organization
-        )
-          arr.append(index[key]);
-      }
-      return arr;
-    }
-  });
+    return new Promise((res, rej) =>
+        fs.readFile("./index.json", "utf8", function (err, data) {
+            if (err) {
+                console.error(err);
+                rej(err);
+            } else {
+                var index = JSON.parse(data);
+                var arr = [];
+                for (var key in index) {
+                    if (
+                        index[key]["type"] == type &&
+                        index[key]["resolve"]["status"] == true &&
+                        index[key]["resolve"]["helper"] == organization
+                    )
+                        arr.push(index[key]);
+                }
+                res(arr);
+            }
+        })
+    );
 }
 
 export function pushForm(id, form) {
-  fs.readFile("./index.json", "utf8", function (err, data) {
-    if (err) {
-      console.error(err);
-      return err;
-    } else {
-      var index = JSON.parse(data);
-      index[id] = form;
-      json = JSON.stringify(index);
-      fs.writeFile("./index.json", json, "utf8", function (err) {
-        if (err) console.error(err);
-      });
-    }
-  });
+    return new Promise((res, rej) =>
+        fs.readFile("./index.json", "utf8", function (err, data) {
+            if (err) {
+                console.error(err);
+                rej(err);
+            } else {
+                var index = JSON.parse(data);
+                index[id] = form;
+                json = JSON.stringify(index);
+                fs.writeFile("./index.json", json, "utf8", function (err) {
+                    if (err) console.error(err);
+                });
+                res('success');
+            }
+        })
+    );
 }
 
 export function updateRepliesById(id, replies) {
-  fs.readFile("./index.json", "utf8", function (err, data) {
-    if (err) {
-      console.error(err);
-      return err;
-    } else {
-      var index = JSON.parse(data);
-      index[id]["replies"] = replies;
-      json = JSON.stringify(index);
-      fs.writeFile("./index.json", json, "utf8", function (err) {
-        if (err) console.error(err);
-      });
-    }
-  });
+    return new Promise((res, rej) =>
+        fs.readFile("./index.json", "utf8", function (err, data) {
+            if (err) {
+                console.error(err);
+                rej (err);
+            } else {
+                var index = JSON.parse(data);
+                index[id]["replies"] = replies;
+                json = JSON.stringify(index);
+                fs.writeFile("./index.json", json, "utf8", function (err) {
+                    if (err) console.error(err);
+                });
+
+                res("success");
+            }
+        })
+    );
 }
 export function updateFormById(id, newform) {
-  fs.readFile("./index.json", "utf8", function (err, data) {
-    if (err) {
-      console.error(err);
-      return err;
-    } else {
-      var index = JSON.parse(data);
-      index[id] = newform;
-      json = JSON.stringify(index);
-      fs.writeFile("./index.json", json, "utf8", function (err) {
-        if (err) console.error(err);
-      });
-    }
-  });
+    return new Promise((res, rej) =>
+        fs.readFile("./index.json", "utf8", function (err, data) {
+            if (err) {
+                console.error(err);
+                rej(err);
+            } else {
+                var index = JSON.parse(data);
+                index[id] = newform;
+                json = JSON.stringify(index);
+                fs.writeFile("./index.json", json, "utf8", function (err) {
+                    if (err) console.error(err);
+                });
+
+                res("success");
+            }
+        })
+    );
 }
