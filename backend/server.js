@@ -15,8 +15,9 @@ app.get("/getFormById", function (req, res) {
 
 app.get("/getNumberByType", function (req, res) {
   var type = req.query.type;
-  var data = api.getNumberByType(type);
-  res.status(200).send(JSON.stringify({ number: data }));
+  api
+    .getNumberByType(type)
+    .then((data) => res.status(200).send(JSON.stringify({ number: data })));
 });
 
 app.get("/getFormsByType", function (req, res) {
