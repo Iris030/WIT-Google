@@ -1,164 +1,77 @@
-const fs = require('fs');
+import * as api from "./api.js"
 
-export function getNumberByType(type) {
+const express = require("express");
 
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.error(err);
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            var num = 0;
-            for (var key in index) {
-                if (index[key]["type"] == type) num++;
-            }
-            return num;
+const app = express();
+
+api.getFormById
+app.get("/getFormById", function (req, res){
+    var id = req.query.id;
+    api.getFormById(id).then(
+        data => {
+            console.log(data);
+            res.status(200).send(JSON.stringify(data));
         }
-    });
-
+    )
 }
+);
 
-export function getFormsByType(type) {
-
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.error(err);
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            var arr = [];
-            for (var key in index) {
-                if (index[key]["type"] == type) arr.append(index[key]);
-            }
-            return arr;
-        }
-    });
-
+app.get("/getNumberByType", function (req, res) {
+    var type = req.query.type;
+    var data = api.getNumberByType(type);
+    res.status(200).send(JSON.stringify({ "number": data }));
 }
+);
 
-export function getFormById(id) {
-
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.log("error");
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            console.log(index);
-            if (index.hasOwnProperty(id)) {
-                var need = index[id];
-                console.log(need);
-                return JSON.stringify(need);
-            } else {
-                return null;
-            }
-        }
-    });
-
+app.get("/getFormsByType", function (req, res) {
+    var type = req.query.type;
+    var data = api.getFormsByType(type);
+    res.status(200).send(JSON.stringify({ "forms": data }));
 }
+);
 
-
-export function getUnresolvedByType(type) {
-
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.error(err);
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            var arr = [];
-            for (var key in index) {
-                if (index[key]["type"] == type && index[key]["resolve"]["status"] == false) arr.append(index[key]);
-            }
-            return JSON.stringify(arr);
-        }
-    });
-
+app.get("/getUnresolvedByType", function (req, res) {
+    var type = req.query.type;
+    var data = api.getUnresolvedByType(type);
+    res.status(200).send(JSON.stringify({ "forms": data }));
 }
+);
 
-export function getResolvedByType(type) {
-
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.error(err);
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            var arr = [];
-            for (var key in index) {
-                if (index[key]["type"] == type && index[key]["resolve"]["status"] == true) arr.append(index[key]);
-            }
-            return JSON.stringify(arr);
-        }
-    });
-
+app.get("/getResolvedByType", function (req, res) {
+    var type = req.query.type;
+    var data = api.getResolvedByType(type);
+    res.status(200).send(JSON.stringify({ "forms": data }));
 }
+);
 
-export function getResolvedByOrg(organization) {
-
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.error(err);
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            var arr = [];
-            for (var key in index) {
-                if (index[key]["type"] == type && index[key]["resolve"]["status"] == true && index[key]["resolve"]["helper"] == organization) arr.append(index[key]);
-            }
-            return JSON.stringify(arr);
-        }
-    });
-
+app.get("/getResolvedByOrg", function (req, res) {
+    var org = req.query.org;
+    var data = api.getResolvedByOrg(org);
+    res.status(200).send(JSON.stringify({ "forms": data }));
 }
+);
 
-export function pushForm(id, form) {
-
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.error(err);
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            index[id] = form;
-            json = JSON.stringify(index);
-            fs.writeFile('backend/index.json', json, 'utf8', function (err) {
-                if (err) console.error(err);
-            });
-        }
-    });
-
+app.get("/pushForm", function (req, res) {
+    var id = req.query.id;
+    var form = JSON.parse(req.query.form);
+    var data = api.pushForm(id, form);
+    res.status(200).send(JSON.stringify({ "status": "successful" }));
 }
+);
 
-export function updateRepliesById(id, replies) {
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.error(err);
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            index[id]["replies"] = replies;
-            json = JSON.stringify(index);
-            fs.writeFile('backend/index.json', json, 'utf8', function (err) {
-                if (err) console.error(err);
-            });
-        }
-    });
+app.get("/updateRepliesById", function (req, res) {
+    var id = req.query.id;
+    var replies = JSON.parse(req.query.replies);
+    var data = api.updateRepliesById(id, replies);
+    res.status(200).send(JSON.stringify({ "status": "successful" }));
 }
-export function updateFormById(id, newform) {
+);
 
-    fs.readFile('backend/index.json', 'utf8', function (err, data) {
-        if (err) {
-            console.error(err);
-            return err;
-        } else {
-            var index = JSON.parse(data);
-            index[id] = newform;
-            json = JSON.stringify(index);
-            fs.writeFile('backend/index.json', json, 'utf8', function (err) {
-                if (err) console.error(err);
-            });
-        }
-    });
-
+app.get("/updateFormById", function (req, res) {
+    var id = req.query.id;
+    var form = JSON.parse(req.query.form);
+    var data = api.updateFormById(id, form);
+    res.status(200).send(JSON.stringify({ "status": "successful" }));
 }
+);
+app.listen(8081);
