@@ -27,6 +27,7 @@ export default function MultilineTextFields(props) {
         label={props.label}
         value={option}
         onChange={handleChange}
+        style={{ width: "95%" }}
       >
         {props.options.map((op) => (
           <MenuItem key={op} value={op}>
@@ -34,11 +35,10 @@ export default function MultilineTextFields(props) {
           </MenuItem>
         ))}
       </TextField>
-      <div style={{ visibility: option === "Other" ? "visible" : "hidden" }}>
+      <div style={{ display: option === "Other" ? "block" : "none" }}>
         <TextField
           id="standard-full-width"
-          style={{ margin: 8 }}
-          fullWidth
+          style={{ marginTop: 8, width: "95%" }}
           margin="normal"
           InputLabelProps={{
             shrink: true,
