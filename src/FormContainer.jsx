@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 import home from "./images/home.jpg";
 
@@ -29,9 +30,11 @@ export default function MediaCard() {
         <p style={{ fontSize: "25px" }}>
           Fill out this form to get help quickly and easily.
         </p>
-        <Button variant="contained" disableElevation>
-          Go to Form
-        </Button>
+        <Link to="/form">
+          <Button variant="contained" disableElevation>
+            Go to Form
+          </Button>
+        </Link>
       </div>
     </div>
   );
