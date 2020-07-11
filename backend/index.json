@@ -1,1 +1,133 @@
-{"1":{"id":"1","name":{"value":"name","can_public":false},"address":{"value":"king Cross","can_public":false},"contact_info":{"value":"1818221212","can_public":true},"pic":{"value":"f22!dsdqwdqw2#@!#@!#@!#!#swqferfaeeweqwfgre43f32`4g@#!1dwqd21332@!#!@#!#@!","can_public":false},"time":"1997.10.10","type":"bushfire","content":"i need healing","services":["healling","olllllll"],"resolve":{"status":false,"helper":"null"},"replies":[{"username":"name.","reply":"str"}]},"2":{"name":"yess"},"3":{"name":"yess","replies":{"name":"yess"}}}
+{
+  "1": {
+    "id": "1",
+    "name": {
+      "value": "Alex",
+      "can_public": false
+    },
+    "address": {
+      "value": "waterloo,sydney",
+      "can_public": false
+    },
+    "contact_info": {
+      "value": "0449121321",
+      "can_public": true
+    },
+    "pic": {
+      "value": "f22!dsdqwdqw2#@!#@!#@!#!#swqferfaeeweqwfgre43f32`4g@#!1dwqd21332@!#!@#!#@!",
+      "can_public": false
+    },
+    "time": "2020.5.3",
+    "type": "bushfire",
+    "content": "oh!shit my house is bunning. i live in waterloo i need help!",
+    "services": [ "financial", "repair house", "hotel" ],
+    "resolve": {
+      "status": false,
+      "helper": "null"
+    },
+    "replies": [
+      {
+        "username": "Andson",
+        "reply": " Can i help you?"
+      }
+    ]
+  },
+  "2": {
+    "id": "2",
+    "name": {
+      "value": "Mask",
+      "can_public": true
+    },
+    "address": {
+      "value": "Melbourne",
+      "can_public": false
+    },
+    "contact_info": {
+      "value": "0448965173",
+      "can_public": true
+    },
+    "pic": {
+      "value": "f22!dsdqwdqw2#@!#@!#@!#!#swqferfaeeweqwfgre43f32`4g@#!1dwqd21332@!#!@#!#@!",
+      "can_public": false
+    },
+    "time": "2020.4.10",
+    "type": "flood",
+    "content": "oh my god..It's all over. The flood destroyed everything. I have nothing",
+    "services": [ "home", "money", "family search" ],
+    "resolve": {
+      "status": true,
+      "helper": "VIC-Government"
+    },
+    "replies": [
+      {
+        "username": "VIC-Government",
+        "reply": "We have received your request and found your family. Please meet them at the settlement in central Melbourne."
+      }
+    ]
+  },
+  "3": {
+    "id": "3",
+    "name": {
+      "value": "Callista",
+      "can_public": true
+    },
+    "address": {
+      "value": "Sydney,NSW",
+      "can_public": true
+    },
+    "contact_info": {
+      "value": "C.Warren@google.com",
+      "can_public": true
+    },
+    "pic": {
+      "value": "f22!dsdqwdqw2#@!#@!#@!#!#swqferfaeeweqwfgre43f32`4g@#!1dwqd21332@!#!@#!#@!",
+      "can_public": false
+    },
+    "time": "2020.6.10",
+    "type": "storm",
+    "content": "Lightning hit my roof. Damn it. I need some help",
+    "services": [ "repair" ],
+    "resolve": {
+      "status": false,
+      "helper": "null"
+    },
+    "replies": [
+      {
+
+      }
+    ]
+  },
+
+  "4": {
+    "id": "4",
+    "name": {
+      "value": "Ceal",
+      "can_public": true
+    },
+    "address": {
+      "value": "Sydney,NSW",
+      "can_public": true
+    },
+    "contact_info": {
+      "value": "Ceal@google.com",
+      "can_public": true
+    },
+    "pic": {
+      "value": "f22!dsdqwdqw2#@!#@!#@!#!#swqferfaeeweqwfgre43f32`4g@#!1dwqd21332@!#!@#!#@!",
+      "can_public": false
+    },
+    "time": "2020.6.10",
+    "type": "storm",
+    "content": "fuck!my room is broken!",
+    "services": [ "repair" ],
+    "resolve": {
+      "status": true,
+      "helper": "Vider"
+    },
+    "replies": [
+      {
+
+      }
+    ]
+  }
+}

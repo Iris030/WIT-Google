@@ -113,7 +113,6 @@ export function getResolvedByOrg(organization) {
                 var arr = [];
                 for (var key in index) {
                     if (
-                        index[key]["type"] == type &&
                         index[key]["resolve"]["status"] == true &&
                         index[key]["resolve"]["helper"] == organization
                     )

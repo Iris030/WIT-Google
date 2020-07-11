@@ -40,7 +40,7 @@ app.get("/getResolvedByType", function (req, res) {
 
 app.get("/getResolvedByOrg", function (req, res) {
   var org = req.query.org;
-  data = api.getResolvedByOrg(org).then((data) =>
+  api.getResolvedByOrg(org).then((data) =>
   res.status(200).send(JSON.stringify({ forms: data })));
 });
 
