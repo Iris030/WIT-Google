@@ -147,4 +147,5 @@ export function updateFormById(id, newform) {
 
 }
 
-
+console.log(getFormById("1"));
+console.log("wwe");
