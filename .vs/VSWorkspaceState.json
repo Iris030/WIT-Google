@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend"
+    "\\backend",
+    "\\public",
+    "\\src"
   ],
-  "SelectedNode": "\\public",
+  "SelectedNode": "\\src\\serviceWorker.js",
   "PreviewInSolutionExplorer": false
 }

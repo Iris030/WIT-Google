@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-export function getNumberByType(type) {
+function getNumberByType(type) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
@@ -17,7 +17,7 @@ export function getNumberByType(type) {
 
 }
 
-export function getFormsByType(type) {
+function getFormsByType(type) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
@@ -34,7 +34,7 @@ export function getFormsByType(type) {
 
 }
 
-export function getFormById(id) {
+function getFormById(id) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
@@ -56,7 +56,7 @@ export function getFormById(id) {
 }
 
 
-export function getUnresolvedByType(type) {
+function getUnresolvedByType(type) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
@@ -73,7 +73,7 @@ export function getUnresolvedByType(type) {
 
 }
 
-export function getResolvedByType(type) {
+function getResolvedByType(type) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
@@ -90,7 +90,7 @@ export function getResolvedByType(type) {
 
 }
 
-export function getResolvedByOrg(organization) {
+function getResolvedByOrg(organization) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
@@ -107,7 +107,7 @@ export function getResolvedByOrg(organization) {
 
 }
 
-export function pushForm(id, form) {
+function pushForm(id, form) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
@@ -124,7 +124,7 @@ export function pushForm(id, form) {
 
 }
 
-export function updateRepliesById(id, replies) {
+function updateRepliesById(id, replies) {
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
             return err
@@ -138,7 +138,7 @@ export function updateRepliesById(id, replies) {
         }
     });
 }
-export function updateFormById(id, newform) {
+function updateFormById(id, newform) {
 
     fs.readFile('backend/index.json', 'utf8', function (err, data) {
         if (err) {
@@ -154,3 +154,7 @@ export function updateFormById(id, newform) {
     });
 
 }
+
+updateRepliesById("3", { name: "yess" })
+console.log(getFormById("1"));
+console.log("wwe");
