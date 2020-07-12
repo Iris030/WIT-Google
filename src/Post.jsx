@@ -1,15 +1,14 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import Button from "@material-ui/core/Button";
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,6 +44,33 @@ export default function RecipeReviewCard(props) {
     userName = props.form.name.value;
   }
 
+  var address;
+  //console.log(props.form.name);
+  if (props.form.Address.can_public === false) {
+    address = "/Hide";
+  } else {
+    address = props.form.Address.value;
+  }
+
+  var contact;
+  //console.log(props.form.name);
+  if (props.form.Contact_info.can_public === false) {
+    contact = "/Hide";
+  } else {
+    contact = props.form.Contact_info.value;
+  }
+
+  const base64Image = props.form.Pic.value;
+  var baseImg="data:image/png;base64," + base64Image;
+  //console.log(baseImg);
+  var pic;
+  //console.log(props.form.name);
+  if (props.form.Pic.can_public === false) {
+    pic = "/Hide";
+  } else {
+    pic = baseImg;
+  }
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -53,25 +79,30 @@ export default function RecipeReviewCard(props) {
             {userName[0]}
           </Avatar>
         }
-        title={props.form.title}
+        title={userName}
         subheader={props.form.Time}
       />
       <CardMedia
         className={classes.media}
-        image={props.form.image}
+        image={pic}
         //title="Paella dish"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography gutterBottom variant="h5" component="h2">
+          {props.form.Title}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          {address}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          {contact}
+        </Typography>
+        <Typography variant="body2" component="p">
           {props.form.Content}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <Link to={`/form`}>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </Link>
+        
       </CardActions>
     </Card>
     

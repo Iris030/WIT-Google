@@ -20,11 +20,11 @@ class PostContainer extends React.Component {
   }
 
   render() {    
-    /*
-    const result = [{
+    
+    /*const result = [{
     id : 1,
     name:{
-      value:"String",
+      value:"IIIIIIis",
       can_public:false
     },
     Address:{
@@ -39,9 +39,10 @@ class PostContainer extends React.Component {
       value:"String",
       can_public: false
     },
-    Time:"String",
-    Type:"String",
-    Content:"String",
+    Time:"11, sep",
+    Type:"floop",
+    Content:"bbbbbbbbbbbbbbbb",
+    Title:"some title",
     Services:[],
     Resolve:{
       status:false,
@@ -50,7 +51,7 @@ class PostContainer extends React.Component {
 
     Replies:[
       {
-    username:"name",
+        username:"name",
         reply:"String"
       },
     ],
@@ -58,24 +59,25 @@ class PostContainer extends React.Component {
     {
       id : 2,
       name:{
-        value:"String",
-        can_public:false
+        value:"IIiiiiilis",
+        can_public:true
       },
       Address:{
-      value:"String",
-      can_public:false
+      value:"somewhere",
+      can_public:true
       },
       Contact_info:{
-        value:"String",
-        can_public: false
+        value:"xxx@email.com",
+        can_public: true
       },
       Pic:{
         value:"String",
-        can_public: false
+        can_public: true
       },
-      Time:"String",
-      Type:"String",
-      Content:"String",
+      Time:"11, sep",
+      Type:"floop",
+      Content:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      Title:"my home",
       Services:[],
       Resolve:{
         status:false,
