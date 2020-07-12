@@ -47,7 +47,7 @@ export default function RecipeReviewCard(props) {
   var address;
   //console.log(props.form.name);
   if (props.form.Address.can_public === false) {
-    address = "/Hide";
+    address = "/Address Hide";
   } else {
     address = props.form.Address.value;
   }
@@ -55,7 +55,7 @@ export default function RecipeReviewCard(props) {
   var contact;
   //console.log(props.form.name);
   if (props.form.Contact_info.can_public === false) {
-    contact = "/Hide";
+    contact = "/Contact Detail Hide";
   } else {
     contact = props.form.Contact_info.value;
   }
