@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-export function getNumberByType(type) {
+function getNumberByType(type) {
   return new Promise((res, rej) =>
     fs.readFile("./index.json", "utf8", function (err, data) {
       if (err) {
@@ -18,7 +18,7 @@ export function getNumberByType(type) {
   );
 }
 
-export function getFormsByType(type) {
+function getFormsByType(type) {
   return new Promise((res, rej) =>
     fs.readFile("./index.json", "utf8", function (err, data) {
       if (err) {
@@ -37,7 +37,7 @@ export function getFormsByType(type) {
   );
 }
 
-export function getFormById(id) {
+function getFormById(id) {
     return new Promise((res, rej) =>
         fs.readFile("./index.json", "utf8", function (err, data) {
             if (err) {
@@ -58,7 +58,7 @@ export function getFormById(id) {
     );
 }
 
-export function getUnresolvedByType(type) {
+function getUnresolvedByType(type) {
     return new Promise((res, rej) =>
         fs.readFile("./index.json", "utf8", function (err, data) {
             if (err) {
@@ -80,7 +80,7 @@ export function getUnresolvedByType(type) {
     );
 }
 
-export function getResolvedByType(type) {
+function getResolvedByType(type) {
     return new Promise((res, rej) =>
         fs.readFile("./index.json", "utf8", function (err, data) {
             if (err) {
@@ -102,7 +102,7 @@ export function getResolvedByType(type) {
     );
 }
 
-export function getResolvedByOrg(organization) {
+function getResolvedByOrg(organization) {
     return new Promise((res, rej) =>
         fs.readFile("./index.json", "utf8", function (err, data) {
             if (err) {
@@ -124,7 +124,7 @@ export function getResolvedByOrg(organization) {
     );
 }
 
-export function pushForm(id, form) {
+function pushForm(id, form) {
     return new Promise((res, rej) =>
         fs.readFile("./index.json", "utf8", function (err, data) {
             if (err) {
@@ -143,7 +143,7 @@ export function pushForm(id, form) {
     );
 }
 
-export function updateRepliesById(id, replies) {
+function updateRepliesById(id, replies) {
     return new Promise((res, rej) =>
         fs.readFile("./index.json", "utf8", function (err, data) {
             if (err) {
@@ -162,7 +162,7 @@ export function updateRepliesById(id, replies) {
         })
     );
 }
-export function updateFormById(id, newform) {
+function updateFormById(id, newform) {
     return new Promise((res, rej) =>
         fs.readFile("./index.json", "utf8", function (err, data) {
             if (err) {
@@ -180,4 +180,18 @@ export function updateFormById(id, newform) {
             }
         })
     );
+}
+
+
+
+module.exports = {
+    getNumberByType: getNumberByType,
+    getFormsByType: getFormsByType,
+    getFormById: getFormById,
+    getUnresolvedByType: getUnresolvedByType,
+    getResolvedByType: getResolvedByType,
+    getResolvedByOrg: getResolvedByOrg,
+    pushForm: pushForm,
+    updateRepliesById, updateRepliesById,
+    updateFormById, updateFormById
 }

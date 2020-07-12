@@ -1,5 +1,4 @@
-import * as api from "./api.js";
-
+var api = require('./api.js');
 const express = require("express");
 
 const app = express();
