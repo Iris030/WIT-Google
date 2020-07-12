@@ -2,7 +2,7 @@ const fs = require("fs");
 
 export function getNumberByType(type) {
   return new Promise((res, rej) =>
-    fs.readFile("./index.json", "utf8", function (err, data) {
+      fs.readFile("./backend/data1.json", "utf8", function (err, data) {
       if (err) {
         console.error(err);
         rej(err);
@@ -20,7 +20,7 @@ export function getNumberByType(type) {
 
 export function getFormsByType(type) {
   return new Promise((res, rej) =>
-    fs.readFile("./index.json", "utf8", function (err, data) {
+      fs.readFile("./backend/data1.json", "utf8", function (err, data) {
       if (err) {
         console.error(err);
         rej(err);
@@ -39,7 +39,7 @@ export function getFormsByType(type) {
 
 export function getFormById(id) {
     return new Promise((res, rej) =>
-        fs.readFile("./index.json", "utf8", function (err, data) {
+        fs.readFile("./backend/data1.json", "utf8", function (err, data) {
             if (err) {
                 console.log("error");
                 rej(err);
@@ -60,7 +60,7 @@ export function getFormById(id) {
 
 export function getUnresolvedByType(type) {
     return new Promise((res, rej) =>
-        fs.readFile("./index.json", "utf8", function (err, data) {
+        fs.readFile("./backend/data1.json", "utf8", function (err, data) {
             if (err) {
                 console.error(err);
                 rej(err);
@@ -82,7 +82,7 @@ export function getUnresolvedByType(type) {
 
 export function getResolvedByType(type) {
     return new Promise((res, rej) =>
-        fs.readFile("./index.json", "utf8", function (err, data) {
+        fs.readFile("./backend/data1.json", "utf8", function (err, data) {
             if (err) {
                 console.error(err);
                 rej(err);
@@ -104,7 +104,7 @@ export function getResolvedByType(type) {
 
 export function getResolvedByOrg(organization) {
     return new Promise((res, rej) =>
-        fs.readFile("./index.json", "utf8", function (err, data) {
+        fs.readFile("./backend/data1.json", "utf8", function (err, data) {
             if (err) {
                 console.error(err);
                 rej(err);
@@ -126,7 +126,7 @@ export function getResolvedByOrg(organization) {
 
 export function pushForm(id, form) {
     return new Promise((res, rej) =>
-        fs.readFile("./index.json", "utf8", function (err, data) {
+        fs.readFile("./backend/data1.json", "utf8", function (err, data) {
             if (err) {
                 console.error(err);
                 rej(err);
@@ -134,7 +134,7 @@ export function pushForm(id, form) {
                 var index = JSON.parse(data);
                 index[id] = form;
                 json = JSON.stringify(index);
-                fs.writeFile("./index.json", json, "utf8", function (err) {
+                fs.writeFile("./backend/data1.json", json, "utf8", function (err) {
                     if (err) console.error(err);
                 });
                 res('success');
@@ -145,7 +145,7 @@ export function pushForm(id, form) {
 
 export function updateRepliesById(id, replies) {
     return new Promise((res, rej) =>
-        fs.readFile("./index.json", "utf8", function (err, data) {
+        fs.readFile("./backend/data1.json", "utf8", function (err, data) {
             if (err) {
                 console.error(err);
                 rej (err);
@@ -153,7 +153,7 @@ export function updateRepliesById(id, replies) {
                 var index = JSON.parse(data);
                 index[id]["replies"] = replies;
                 json = JSON.stringify(index);
-                fs.writeFile("./index.json", json, "utf8", function (err) {
+                fs.writeFile("./backend/data1.json", json, "utf8", function (err) {
                     if (err) console.error(err);
                 });
 
@@ -164,7 +164,7 @@ export function updateRepliesById(id, replies) {
 }
 export function updateFormById(id, newform) {
     return new Promise((res, rej) =>
-        fs.readFile("./index.json", "utf8", function (err, data) {
+        fs.readFile("./backend/data1.json", "utf8", function (err, data) {
             if (err) {
                 console.error(err);
                 rej(err);
@@ -172,7 +172,7 @@ export function updateFormById(id, newform) {
                 var index = JSON.parse(data);
                 index[id] = newform;
                 json = JSON.stringify(index);
-                fs.writeFile("./index.json", json, "utf8", function (err) {
+                fs.writeFile("./backend/data1.json", json, "utf8", function (err) {
                     if (err) console.error(err);
                 });
 

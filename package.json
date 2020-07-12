@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backend": "node backend/server.js"
+    "backend": "babel-node backend/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
