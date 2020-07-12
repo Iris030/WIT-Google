@@ -60,16 +60,15 @@ export default function RecipeReviewCard(props) {
     contact = props.form.Contact_info.value;
   }
 
-  const base64Image = props.form.Pic.value;
-  var baseImg = "data:image/png;base64," + base64Image;
   //console.log(baseImg);
   var pic;
   //console.log(props.form.name);
   if (props.form.Pic.can_public === false) {
     pic = "/Hide";
   } else {
-    pic = baseImg;
+    pic = props.form.Pic.value;
   }
+  //console.log(pic,"111111");
 
   //var serNum = length(props.form.Services);
   var sers = props.form.Services;
@@ -112,3 +111,12 @@ export default function RecipeReviewCard(props) {
     </Card>
   );
 }
+
+/*
+class Post extends React.Component {
+  render() {
+    return <p>{this.props.form.name}</p>;
+  }
+
+export default Post;
+*/
