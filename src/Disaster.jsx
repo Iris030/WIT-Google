@@ -52,7 +52,7 @@ export default function MediaCard(props) {
             {props.description}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            There're {count} posts
+            There're {props.number} posts
           </Typography>
         </CardContent>
       </CardActionArea>

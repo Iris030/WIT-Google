@@ -15,7 +15,7 @@ export default function MediaCard() {
       }}
     >
       <Banner service="Accomodation" image={motel} />
-      <Banner service="Renovation" image={renovation} />
+      <Banner service="Rennovation" image={renovation} />
       <Banner service="Essentials" image={food} />
     </div>
   );
