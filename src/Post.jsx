@@ -71,6 +71,9 @@ export default function RecipeReviewCard(props) {
     pic = baseImg;
   }
 
+  //var serNum = length(props.form.Services);
+  var sers = props.form.Services;
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -102,7 +105,9 @@ export default function RecipeReviewCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        
+        {sers.map(function(s){
+            return <Button variant="outlined">{s}</Button>;
+        })}
       </CardActions>
     </Card>
     

@@ -2,7 +2,7 @@ import React from "react";
 import Post from "./Post";
 
 class PostContainer extends React.Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props);
     this.state = {
       tasks: []
@@ -17,11 +17,11 @@ class PostContainer extends React.Component {
           tasks: data
         })
       })
-  }
+  }*/
 
   render() {    
     
-    /*const result = [{
+    const result = [{
     id : 1,
     name:{
       value:"IIIIIIis",
@@ -78,7 +78,7 @@ class PostContainer extends React.Component {
       Type:"floop",
       Content:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       Title:"my home",
-      Services:[],
+      Services:["aaa","bbb"],
       Resolve:{
         status:false,
         helper:"String"
@@ -91,10 +91,10 @@ class PostContainer extends React.Component {
         },
       ],
       }
-    ];*/
+    ];
     return (
       <div>
-        {this.state.tasks.map((r) => {
+        {result.map((r) => {
           return <Post form={r} />;
         })}
       </div>
