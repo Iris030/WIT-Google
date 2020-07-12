@@ -31,6 +31,7 @@ export default function MediaCard() {
         <p style={{ fontSize: "25px" }}>
           Fill out this form to get help quickly and easily.
         </p>
+        <p>We also support SMS, number: (+61)416876162</p>
         <Link to="/form">
           <Button variant="contained" disableElevation>
             Go to Form
